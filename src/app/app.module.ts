@@ -8,7 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RecentNewsComponent } from './components/recent-news/recent-news.component';
 import { NewsService } from 'src/api/news-api.services';
-
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { FilterComponent } from './components/filter/filter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,8 @@ import { NewsService } from 'src/api/news-api.services';
     HeaderComponent,
     NavbarComponent,
     RecentNewsComponent,
+    CategoriesComponent,
+    FilterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [NewsService],
