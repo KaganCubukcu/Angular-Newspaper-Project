@@ -13,7 +13,7 @@ import { NewsService } from 'src/api/news-api.services';
     <section class="content-title">
       <h4>{{ category | titlecase }} News</h4>
     </section>
-    <div *ngFor="let article of articles">
+    <div *ngFor="let article of articles | slice : 0 : 5">
       <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
   `,
@@ -33,6 +33,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.getNews();
+    console.log(this.articles);
   }
 
   onCountryChanged(country: string) {

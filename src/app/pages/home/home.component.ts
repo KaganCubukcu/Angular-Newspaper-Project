@@ -15,6 +15,7 @@ import { NewsService } from 'src/api/news-api.services';
 export class HomeComponent implements OnInit {
   articles: any[] = [];
   page = 1;
+
   constructor(private newsService: NewsService) {}
   ngOnInit() {
     this.getNews();

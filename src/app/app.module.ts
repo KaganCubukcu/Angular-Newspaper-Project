@@ -11,6 +11,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
 import { RecentNewsItemComponent } from './components/recent-news-item/recent-news-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,

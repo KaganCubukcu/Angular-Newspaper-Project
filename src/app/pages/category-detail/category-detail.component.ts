@@ -7,40 +7,87 @@ import { NewsService } from 'src/api/news-api.services';
   template: `
     <app-header></app-header>
     <app-navbar (categorySelected)="onCategorySelected($event)"></app-navbar>
-    <div *ngFor="let article of articles">
+    <div *ngFor="let article of articlesToDisplay">
       <app-recent-news-item [article]="article"></app-recent-news-item>
+    </div>
+    <div *ngIf="numPages > 1">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">
+        Previous Page
+      </button>
+      <button (click)="nextPage()" [disabled]="currentPage === numPages">
+        Next Page
+      </button>
+      <span>Page {{ currentPage }} of {{ numPages }}</span>
     </div>
   `,
   styleUrls: ['./category-detail.component.css'],
 })
 export class CategoryDetailComponent implements OnInit {
   articles: any[] = [];
-  page: number;
+  articlesPerPage = 20;
+  currentPage = 1;
+  numPages = 1;
   country: string;
   category: string;
+  totalResults: number;
 
   constructor(private newsService: NewsService, private route: ActivatedRoute) {
+    console.log('Constructor called');
     this.country = 'tr';
     this.category = 'general';
-    this.page = 1;
   }
+
   ngOnInit() {
+    console.log('ngOnInit called');
     this.route.params.subscribe((params) => {
       this.category = params['category'];
       console.log('Category:', this.category);
       this.getNews();
     });
   }
+
   onCategorySelected(category: string) {
+    console.log('onCategorySelected called');
     this.category = category;
     console.log('Category Selected:', this.category);
     this.getNews();
   }
+
   getNews() {
+    console.log('getNews called with page:', this.currentPage);
     this.newsService
-      .getNews(this.country, this.category, this.page)
+      .getNews(this.country, this.category, this.currentPage)
       .subscribe((data) => {
+        console.log('News data received for page:', this.currentPage);
         this.articles = data.articles;
+        this.totalResults = data.totalResults;
+        this.numPages = Math.ceil(this.totalResults / this.articlesPerPage);
+        console.log('Articles:', this.articles);
+        console.log('Total Results:', this.totalResults);
+        console.log('Num pages:', this.numPages);
       });
+  }
+
+  get articlesToDisplay() {
+    console.log('articlesToDisplay called');
+    const startIndex = 0;
+    const endIndex = 20;
+    const articlesToDisplay = this.articles.slice(startIndex, endIndex);
+    console.log('startIndex:', startIndex);
+    console.log('endIndex:', endIndex);
+    console.log('articlesToDisplay:', articlesToDisplay);
+    return articlesToDisplay;
+  }
+
+  prevPage() {
+    console.log('prevPage called');
+    this.currentPage--;
+    this.getNews();
+  }
+
+  nextPage() {
+    console.log('nextPage called');
+    this.currentPage++;
+    this.getNews();
   }
 }
