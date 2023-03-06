@@ -10,6 +10,7 @@ import { RecentNewsComponent } from './components/recent-news/recent-news.compon
 import { NewsService } from 'src/api/news-api.services';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { NewsContentComponent } from './components/news-content/news-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { FilterComponent } from './components/filter/filter.component';
     RecentNewsComponent,
     CategoriesComponent,
     FilterComponent,
+    NewsContentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [NewsService],
