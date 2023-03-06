@@ -7,9 +7,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RecentNewsComponent } from './components/recent-news/recent-news.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent, RecentNewsComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent, RecentNewsComponent, FilterComponent, CategoriesComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
