@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RecentNewsComponent } from './components/recent-news/recent-news.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent, RecentNewsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
