@@ -6,7 +6,9 @@ import { NewsService } from 'src/api/news-api.services';
   template: `
     <app-header></app-header>
     <app-navbar></app-navbar>
-    <app-recent-news [articles]="articles"></app-recent-news>
+    <div *ngFor="let article of articles">
+      <app-recent-news-item [article]="article"></app-recent-news-item>
+    </div>
   `,
   styleUrls: ['./home.component.css'],
 })

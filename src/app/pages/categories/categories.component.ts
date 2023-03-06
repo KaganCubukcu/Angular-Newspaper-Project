@@ -13,12 +13,8 @@ import { NewsService } from 'src/api/news-api.services';
     <section class="content-title">
       <h4>{{ category | titlecase }} News</h4>
     </section>
-    <div *ngFor="let article of articles" class="content-container">
-      <p>{{ article.title }}</p>
-      <p>{{ article.author }}</p>
-      <section class="button-container-categories">
-        <button>Habere git</button>
-      </section>
+    <div *ngFor="let article of articles">
+      <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
   `,
   styleUrls: ['./categories.component.css'],

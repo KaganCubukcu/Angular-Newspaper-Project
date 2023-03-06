@@ -8,8 +8,7 @@ import { NewsService } from 'src/api/news-api.services';
     <app-header></app-header>
     <app-navbar (categorySelected)="onCategorySelected($event)"></app-navbar>
     <div *ngFor="let article of articles">
-      <p>{{ article.title }}</p>
-      <p>{{ article.author }}</p>
+      <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
   `,
   styleUrls: ['./category-detail.component.css'],
