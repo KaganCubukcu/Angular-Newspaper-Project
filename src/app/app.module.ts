@@ -18,7 +18,6 @@ import { RecentNewsItemComponent } from './components/recent-news-item/recent-ne
     HomeComponent,
     HeaderComponent,
     NavbarComponent,
-
     CategoriesComponent,
     FilterComponent,
     CategoryDetailComponent,
