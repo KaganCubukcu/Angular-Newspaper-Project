@@ -5,7 +5,7 @@ import { NewsService } from 'src/api/news-api.services';
 @Component({
   selector: 'app-category-detail',
   template: `
-    <app-header></app-header>
+    <app-header (InputQueryData)="onInputQueryData($event)"></app-header>
     <app-navbar (categorySelected)="onCategorySelected($event)"></app-navbar>
     <div *ngFor="let article of articlesToDisplay">
       <app-recent-news-item [article]="article"></app-recent-news-item>
@@ -24,13 +24,17 @@ import { NewsService } from 'src/api/news-api.services';
 })
 export class CategoryDetailComponent implements OnInit {
   articles: any[] = [];
-  articlesPerPage = 20;
+
   currentPage = 1;
   numPages = 1;
   country: string;
   category: string;
   totalResults: number;
+  InputQuery: string;
 
+  onInputQueryData(data: string) {
+    this.InputQuery = data;
+  }
   constructor(private newsService: NewsService, private route: ActivatedRoute) {
     console.log('Constructor called');
     this.country = 'tr';
@@ -61,7 +65,7 @@ export class CategoryDetailComponent implements OnInit {
         console.log('News data received for page:', this.currentPage);
         this.articles = data.articles;
         this.totalResults = data.totalResults;
-        this.numPages = Math.ceil(this.totalResults / this.articlesPerPage);
+        this.numPages = Math.ceil(this.totalResults / 20);
         console.log('Articles:', this.articles);
         console.log('Total Results:', this.totalResults);
         console.log('Num pages:', this.numPages);
@@ -70,9 +74,16 @@ export class CategoryDetailComponent implements OnInit {
 
   get articlesToDisplay() {
     console.log('articlesToDisplay called');
-    const startIndex = 0;
-    const endIndex = 20;
-    const articlesToDisplay = this.articles.slice(startIndex, endIndex);
+    const startIndex = (this.currentPage - 1) * 20;
+    const endIndex = startIndex + 20;
+    let articlesToDisplay = this.articles.slice(startIndex, endIndex);
+
+    if (this.InputQuery) {
+      articlesToDisplay = articlesToDisplay.filter((article) =>
+        article.title.toLowerCase().includes(this.InputQuery.toLowerCase())
+      );
+    }
+
     console.log('startIndex:', startIndex);
     console.log('endIndex:', endIndex);
     console.log('articlesToDisplay:', articlesToDisplay);
