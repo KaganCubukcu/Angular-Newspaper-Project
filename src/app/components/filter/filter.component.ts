@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
   template: ` <div className="filter-container">
     <p>Search by country name:</p>
-    <select>
+    <select (change)="onCountryChange($event)">
       <option value="tr">Turkish</option>
       <option value="us">English</option>
       <option value="kr">Korean</option>
@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
     </select>
 
     <p>Search by category:</p>
-    <select>
+    <select (change)="onCategoryChange($event)">
       <option value="general">General</option>
       <option value="business">Business</option>
       <option value="entertainment">Entertainment</option>
@@ -25,4 +25,19 @@ import { Component } from '@angular/core';
   </div>`,
   styleUrls: ['./filter.component.css'],
 })
-export class FilterComponent {}
+export class FilterComponent {
+  @Output() countryChanged = new EventEmitter<string>();
+  @Output() categoryChanged = new EventEmitter<string>();
+
+  onCountryChange(event: any) {
+    const value = event.target.value;
+    console.log('Country changed:', value);
+    this.countryChanged.emit(value);
+  }
+
+  onCategoryChange(event: any) {
+    const value = event.target.value;
+    console.log('Category changed:', value);
+    this.categoryChanged.emit(value);
+  }
+}

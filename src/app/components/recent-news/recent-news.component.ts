@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewsService } from 'src/api/news-api.services';
 
 @Component({
@@ -18,18 +18,7 @@ import { NewsService } from 'src/api/news-api.services';
   styleUrls: ['./recent-news.component.css'],
 })
 export class RecentNewsComponent implements OnInit {
-  articles: any[] = [];
-  page = 1;
-  constructor(private newsService: NewsService) {}
-  ngOnInit() {
-    this.getNews();
-  }
-  getNews() {
-    const country = 'tr';
-    const category = 'general';
-
-    this.newsService.getNews(country, category, this.page).subscribe((data) => {
-      this.articles = this.articles.concat(data.articles);
-    });
-  }
+  ngOnInit(): void {}
+  @Input()
+  articles!: any[];
 }
