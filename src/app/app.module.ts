@@ -7,11 +7,18 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RecentNewsComponent } from './components/recent-news/recent-news.component';
+import { NewsService } from 'src/api/news-api.services';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent, RecentNewsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    NavbarComponent,
+    RecentNewsComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [NewsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
