@@ -6,9 +6,11 @@ import { Component, Input } from '@angular/core';
     <div class="content-container">
       <div>{{ article.author }}</div>
       <h5>{{ article.title }}</h5>
-      <p>{{ article.publishedAt }}</p>
-      <section class="button-container">
-        <button>Habere git</button>
+      <p>{{ article.publishedAt | date : 'dd/MM/YY' }}</p>
+      <section class="section-link-container ">
+        <a href="{{ article.url }}" target="_blank" class="section-link"
+          >Habere git</a
+        >
       </section>
     </div>
   `,

@@ -10,14 +10,14 @@ import { NewsService } from 'src/api/news-api.services';
     <div *ngFor="let article of articlesToDisplay">
       <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
-    <div *ngIf="numPages > 1">
+    <div *ngIf="numPages > 1" class="button-container">
       <button (click)="prevPage()" [disabled]="currentPage === 1">
         Previous Page
       </button>
+      <span>Page {{ currentPage }} of {{ numPages }}</span>
       <button (click)="nextPage()" [disabled]="currentPage === numPages">
         Next Page
       </button>
-      <span>Page {{ currentPage }} of {{ numPages }}</span>
     </div>
   `,
   styleUrls: ['./category-detail.component.css'],
