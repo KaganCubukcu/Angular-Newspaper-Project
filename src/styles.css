@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0 12vw;
+  font-family: "Cabin", sans-serif;
+}
+.content-container {
+  display: grid;
+  border: 1px solid black;
+  border-radius: 16px;
+  padding: 15px;
+  margin: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  width: 200px;
+  height: 50px;
+  background-color: #252525;
+  color: #fff;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: gray;
+}
+/* Category component */
+.content-title {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+/* Filter Component */
+.filter-container {
+  display: flex;
+  padding-left: 20px;
+  gap: 10px;
+}

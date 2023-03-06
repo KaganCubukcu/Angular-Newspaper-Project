@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
-  template: ` <div className="filter-container">
+  template: ` <div class="filter-container">
     <p>Search by country name:</p>
     <select (change)="onCountryChange($event)">
       <option value="tr">Turkish</option>

@@ -10,9 +10,15 @@ import { NewsService } from 'src/api/news-api.services';
       (countryChanged)="onCountryChanged($event)"
       (categoryChanged)="onCategoryChanged($event)"
     ></app-filter>
-    <div *ngFor="let article of articles">
+    <section class="content-title">
+      <h4>{{ category | titlecase }} News</h4>
+    </section>
+    <div *ngFor="let article of articles" class="content-container">
       <p>{{ article.title }}</p>
       <p>{{ article.author }}</p>
+      <section class="button-container-categories">
+        <button>Habere git</button>
+      </section>
     </div>
   `,
   styleUrls: ['./categories.component.css'],
