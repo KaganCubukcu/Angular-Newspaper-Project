@@ -20,7 +20,6 @@ import { NewsService } from 'src/api/news-api.services';
       </button>
     </div>
   `,
- 
 })
 export class CategoryDetailComponent implements OnInit {
   articles: any[] = [];
@@ -74,7 +73,7 @@ export class CategoryDetailComponent implements OnInit {
 
   get articlesToDisplay() {
     console.log('articlesToDisplay called');
-    const startIndex = (this.currentPage - 1) * 20;
+    const startIndex = 0;
     const endIndex = startIndex + 20;
     let articlesToDisplay = this.articles.slice(startIndex, endIndex);
 
