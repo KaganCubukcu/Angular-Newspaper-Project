@@ -11,7 +11,8 @@ export class NewsService {
   getNews(country: string, category: string, page: number): Observable<any> {
     const apiKey = 'e29abe99c41f4dfb92863f94efcacc8b';
     //yedek api
-    const apiKeyBackup = '1c75f5eb5da4470ba114e6325a69a142';
+
+    const apiKeyBackup = '879ba18027e24d5b9a8a3c4fbedcc494';
     const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKeyBackup}&page=${page}`;
 
     return this.http.get(url);

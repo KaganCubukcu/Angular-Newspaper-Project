@@ -17,7 +17,6 @@ import { NewsService } from 'src/api/news-api.services';
       <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
   `,
-  styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
   articles: any[] = [];

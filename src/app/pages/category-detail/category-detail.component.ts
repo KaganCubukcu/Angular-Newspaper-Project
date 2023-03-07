@@ -20,7 +20,7 @@ import { NewsService } from 'src/api/news-api.services';
       </button>
     </div>
   `,
-  styleUrls: ['./category-detail.component.css'],
+ 
 })
 export class CategoryDetailComponent implements OnInit {
   articles: any[] = [];

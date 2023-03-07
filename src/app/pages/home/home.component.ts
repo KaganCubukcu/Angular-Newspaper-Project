@@ -10,7 +10,6 @@ import { NewsService } from 'src/api/news-api.services';
       <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
   `,
-  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   articles: any[] = [];
