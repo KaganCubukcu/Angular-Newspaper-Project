@@ -30,7 +30,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
       <li routerLink="/about" routerLinkActive="active">ABOUT</li>
     </ul>
   </nav>`,
-  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
   @Output() categorySelected = new EventEmitter<string>();

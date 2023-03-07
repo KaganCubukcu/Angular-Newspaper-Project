@@ -13,7 +13,6 @@ import { Component, Output, EventEmitter } from '@angular/core';
       />
     </div>
   </div>`,
-  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   InputQuery: string;

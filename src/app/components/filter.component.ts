@@ -23,7 +23,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
       <option value="technology">Technology</option>
     </select>
   </div>`,
-  styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent {
   @Output() countryChanged = new EventEmitter<string>();
