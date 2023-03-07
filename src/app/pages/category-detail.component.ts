@@ -7,6 +7,7 @@ import { NewsService } from 'src/api/news-api.services';
   template: `
     <app-header (InputQueryData)="onInputQueryData($event)"></app-header>
     <app-navbar (categorySelected)="onCategorySelected($event)"></app-navbar>
+    <p class="category-name-header">{{ category | titlecase }} News</p>
     <div *ngFor="let article of articlesToDisplay">
       <app-recent-news-item [article]="article"></app-recent-news-item>
     </div>
@@ -35,13 +36,11 @@ export class CategoryDetailComponent implements OnInit {
     this.InputQuery = data;
   }
   constructor(private newsService: NewsService, private route: ActivatedRoute) {
-    console.log('Constructor called');
     this.country = 'tr';
     this.category = 'general';
   }
 
   ngOnInit() {
-    console.log('ngOnInit called');
     this.route.params.subscribe((params) => {
       this.category = params['category'];
       console.log('Category:', this.category);
@@ -50,18 +49,15 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   onCategorySelected(category: string) {
-    console.log('onCategorySelected called');
     this.category = category;
     console.log('Category Selected:', this.category);
     this.getNews();
   }
 
   getNews() {
-    console.log('getNews called with page:', this.currentPage);
     this.newsService
       .getNews(this.country, this.category, this.currentPage)
       .subscribe((data) => {
-        console.log('News data received for page:', this.currentPage);
         this.articles = data.articles;
         this.totalResults = data.totalResults;
         this.numPages = Math.ceil(this.totalResults / 20);
@@ -72,7 +68,6 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   get articlesToDisplay() {
-    console.log('articlesToDisplay called');
     const startIndex = 0;
     const endIndex = startIndex + 20;
     let articlesToDisplay = this.articles.slice(startIndex, endIndex);
@@ -90,13 +85,11 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   prevPage() {
-    console.log('prevPage called');
     this.currentPage--;
     this.getNews();
   }
 
   nextPage() {
-    console.log('nextPage called');
     this.currentPage++;
     this.getNews();
   }

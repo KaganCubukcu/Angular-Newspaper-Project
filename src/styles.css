@@ -79,3 +79,8 @@ button:disabled {
   width: 70vw;
   align-items: center;
 }
+.category-name-header {
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+}
