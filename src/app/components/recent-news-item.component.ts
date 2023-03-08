@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
     <div class="content-container">
       <div>{{ article.author }}</div>
       <h5>{{ article.title }}</h5>
-      <p>{{ article.publishedAt | fixData }}</p>
+      <p>{{ article.publishedAt | fixDate }}</p>
 
       <section class="section-link-container ">
         <a href="{{ article.url }}" target="_blank" class="section-link"

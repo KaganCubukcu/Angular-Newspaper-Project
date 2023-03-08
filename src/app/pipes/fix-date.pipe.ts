@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'fixData',
+  name: 'fixDate',
 })
-export class FixDataPipe implements PipeTransform {
+export class FixDatePipe implements PipeTransform {
   transform(value: string): string {
     const date = new Date(value.replace('T', ' ').replace('Z', ''));
     const day = date.getDate().toString().padStart(2, '0');

@@ -11,7 +11,7 @@ import { CategoriesComponent } from './pages/categories.component';
 import { FilterComponent } from './components/filter.component';
 import { CategoryDetailComponent } from './pages/category-detail.component';
 import { RecentNewsItemComponent } from './components/recent-news-item.component';
-import { FixDataPipe } from './pipes/fix-data.pipe';
+import { FixDatePipe } from './pipes/fix-date.pipe';
 import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     FilterComponent,
     CategoryDetailComponent,
     RecentNewsItemComponent,
-    FixDataPipe,
+    FixDatePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [NewsService],
