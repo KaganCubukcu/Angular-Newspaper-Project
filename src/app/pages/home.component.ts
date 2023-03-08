@@ -13,7 +13,6 @@ import { NewsService } from 'src/api/news-api.services';
 })
 export class HomeComponent implements OnInit {
   articles: any[] = [];
-  page = 1;
 
   constructor(private newsService: NewsService) {}
   ngOnInit() {
@@ -22,8 +21,8 @@ export class HomeComponent implements OnInit {
   getNews() {
     const country = 'tr';
     const category = 'general';
-
-    this.newsService.getNews(country, category, this.page).subscribe((data) => {
+    const page = 1;
+    this.newsService.getNews(country, category, page).subscribe((data) => {
       this.articles = this.articles.concat(data.articles);
     });
   }
