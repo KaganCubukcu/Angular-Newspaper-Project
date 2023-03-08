@@ -43,14 +43,12 @@ export class CategoryDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params['category'];
-      console.log('Category:', this.category);
       this.getNews();
     });
   }
 
   onCategorySelected(category: string) {
     this.category = category;
-    console.log('Category Selected:', this.category);
     this.getNews();
   }
 
@@ -61,9 +59,6 @@ export class CategoryDetailComponent implements OnInit {
         this.articles = data.articles;
         this.totalResults = data.totalResults;
         this.numPages = Math.ceil(this.totalResults / 20);
-        console.log('Articles:', this.articles);
-        console.log('Total Results:', this.totalResults);
-        console.log('Num pages:', this.numPages);
       });
   }
 
@@ -78,9 +73,6 @@ export class CategoryDetailComponent implements OnInit {
       );
     }
 
-    console.log('startIndex:', startIndex);
-    console.log('endIndex:', endIndex);
-    console.log('articlesToDisplay:', articlesToDisplay);
     return articlesToDisplay;
   }
 

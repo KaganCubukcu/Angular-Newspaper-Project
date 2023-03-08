@@ -32,7 +32,6 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.getNews();
-    console.log(this.articles);
   }
 
   onCountryChanged(country: string) {

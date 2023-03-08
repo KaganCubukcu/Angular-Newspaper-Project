@@ -30,13 +30,11 @@ export class FilterComponent {
 
   onCountryChange(event: any) {
     const value = event.target.value;
-    console.log('Country changed:', value);
     this.countryChanged.emit(value);
   }
 
   onCategoryChange(event: any) {
     const value = event.target.value;
-    console.log('Category changed:', value);
     this.categoryChanged.emit(value);
   }
 }

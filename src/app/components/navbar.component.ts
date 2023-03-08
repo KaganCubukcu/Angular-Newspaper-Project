@@ -35,6 +35,5 @@ export class NavbarComponent {
 
   onCategorySelected(category: string) {
     this.categorySelected.emit(category);
-    console.log(category);
   }
 }
